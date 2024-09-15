@@ -5,6 +5,7 @@
 ### Requisitos
 - Node.js : 20.0.0
 - NPM
+- Docker
 
 ### Guia de Instalação dos Requisitos
 
@@ -16,6 +17,9 @@ sudo apt install nodejs
 
 # Instalação do NPM
 sudo apt install npm
+
+# Instalação do Docker
+https://docs.docker.com/desktop/install/linux/
 
 # Verificando a instalação
 node -v
@@ -29,6 +33,10 @@ https://nodejs.org/en/download/
 
 # Instalação do NPM
 Já vem instalado com o Node.js
+
+# Instalação do Docker
+https://docs.docker.com/get-docker/
+
 
 # Verificando a instalação
 node -v
