@@ -39,10 +39,10 @@ npm -v
 
 ```bash
 # Clone o repositório
-git clone https://github.com/seu-usuario/seu-repositorio.git
+git clone https://github.com/GabrielOliveira9400/api_futebol.git
 
 # Entre no diretório do repositório
-cd seu-repositorio
+cd api_futebol
 ```
 ## Installation
 
