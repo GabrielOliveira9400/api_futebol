@@ -3,7 +3,7 @@
 ## Configuração do Projeto
 
 ### Requisitos
-- Node.js : 20.0.0
+- Node.js
 - NPM
 - Docker
 ### Documentação da API
