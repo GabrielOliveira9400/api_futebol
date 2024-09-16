@@ -1,6 +1,6 @@
 export var Positions;
 (function (Positions) {
-    Positions["defense"] = "Defensor";
+    Positions["defence"] = "Defensor";
     Positions["Offence"] = "Atacante";
     Positions["Midfield"] = "Meio-campo";
     Positions["Goalkeeper"] = "Goleiro";
