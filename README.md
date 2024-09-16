@@ -69,4 +69,7 @@ npm run build
 
 # Roda o projeto e o banco de dados
 docker-compose up --build
+
+#Link para acessar a documentação da API
+http://localhost:3000/api
 ```
