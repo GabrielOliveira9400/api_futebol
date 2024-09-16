@@ -6,7 +6,6 @@ import { ClubEntity } from "../../database/entities/club.entity";
 import { Repository } from "typeorm";
 import { PlayerEntity } from "../../database/entities/player.entity";
 import { v4 as uuidv4 } from "uuid";
-import * as process from "node:process";
 
 @Injectable()
 export class ClubsService {
@@ -68,24 +67,29 @@ export class ClubsService {
 
 
   async updatePlayer(player: PlayerDTO): Promise<void> {
+    const playerEntity = await this.playerRepository.findOne({
+      where: { name: player.name }
+    });
 
+    if (!playerEntity) {
+      throw new HttpException('Player not found', 404);
+    }
+
+    playerEntity.clubId = player.clubId;
+    await this.playerRepository.save(playerEntity);
   }
 
   async updateClub(club: ClubsWithPlayersDto): Promise<void> {
+    const clubEntity = await this.clubRepository.findOne({
+      where: { name: club.name }
+    });
 
-  }
+    if (!clubEntity) {
+      throw new HttpException('Club not found', 404);
+    }
 
-  async filterByPlayerName(name: string): Promise<ClubEntity[]> {
-    return this.clubRepository.createQueryBuilder('club')
-      .leftJoinAndSelect('club.players', 'player')
-      .where('player.name = :name', { name })
-      .getMany();
-  }
-
-  async filterByClubName(name: string): Promise<ClubEntity[]> {
-    return this.clubRepository.createQueryBuilder('club')
-      .where('club.name = :name', { name })
-      .getMany();
+    clubEntity.name = club.name;
+    await this.clubRepository.save(clubEntity);
   }
 
   async findClubsWithPlayers(): Promise<ClubEntity[]> {

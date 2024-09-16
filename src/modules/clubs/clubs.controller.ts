@@ -15,4 +15,14 @@ export class ClubsController {
       throw new InternalServerErrorException(error);
     }
   }
+
+  @Get()
+  async findAll() : Promise<ClubsWithPlayersDto[]>{
+    try {
+      return await this.clubsService.findClubsWithPlayers();
+    }
+    catch (error) {
+      throw new InternalServerErrorException(error);
+    }
+  }
 }
