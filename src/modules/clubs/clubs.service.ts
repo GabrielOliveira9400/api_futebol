@@ -6,6 +6,7 @@ import { ClubEntity } from "../../database/entities/club.entity";
 import { Repository } from "typeorm";
 import { PlayerEntity } from "../../database/entities/player.entity";
 import { v4 as uuidv4 } from "uuid";
+import { Positions} from "../../helpers/translatePositions";
 
 @Injectable()
 export class ClubsService {
@@ -92,7 +93,13 @@ export class ClubsService {
     await this.clubRepository.save(clubEntity);
   }
 
-  async findClubsWithPlayers(): Promise<ClubEntity[]> {
-    return this.clubRepository.find({ relations: ['players'] });
+  async findClubsWithPlayers(): Promise<ClubsWithPlayersDto[]> {
+    let clubs =  await this.clubRepository.find({ relations: ['players'] });
+    clubs.map(club => {
+      club.players.map(player => {
+        player.position = Positions[player.position] || player.position;
+      })
+    });
+    return clubs;
   }
 }
