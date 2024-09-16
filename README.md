@@ -6,6 +6,9 @@
 - Node.js : 20.0.0
 - NPM
 - Docker
+### Documentação da API
+
+- [Documentação da API](http://localhost:3000/api)
 
 ### Guia de Instalação dos Requisitos
 
@@ -69,4 +72,7 @@ npm run build
 
 # Roda o projeto e o banco de dados
 docker-compose up --build
+
+#Link para acessar a documentação da API
+http://localhost:3000/api
 ```
